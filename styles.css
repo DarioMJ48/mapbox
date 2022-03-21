@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+}
+
+#contenedor {
+  width: 100%;
+  text-align: center;
+}
+
+#formularioPOI {
+  display: inline-block;
+}
+
+input {
+  height: 20px;
+  width: 155px;
+}
+
+option[value=""][disabled] {
+  display: none;
+}
+
+#map {
+  height: 90vh;
+  width: 100wh;
+}
+
+.marker {
+  background-image: url('https://toppng.com/uploads/preview/eat-play-do-icon-map-marker-115548254600u9yjx6qhj.png');
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
