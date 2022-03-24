@@ -26,6 +26,7 @@ option[value=""][disabled] {
 
 button {
   background-color: white;
+  cursor: pointer;
 }
 
 hr {

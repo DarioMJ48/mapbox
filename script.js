@@ -1,4 +1,4 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoiZGFyaW9tajQ4IiwiYSI6ImNsMHg2ZzRvbzBzcm8zZnA1cDR4cDd4d3kifQ.grUHSbKwXiWFwqQI1d_7dQ';
+mapboxgl.accessToken = '';
 
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
   enableHighAccuracy: true
@@ -71,6 +71,3 @@ function createPOI() {
     .addTo(map);
   })
 }
-
-//-34.7071127
-//-58.7847472
