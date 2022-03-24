@@ -1,23 +1,35 @@
 body {
-  margin: 0;
+  margin: 0px;
+  background-color: #ccc;
 }
 
 #contenedor {
   width: 100%;
+  background-color: #ccc;
   text-align: center;
 }
 
 #formularioPOI {
+  margin-top: 5px;
+  margin-bottom: 5px;
   display: inline-block;
 }
 
-input {
-  height: 20px;
-  width: 155px;
+input, select, button {
+  width: 125px;
+  border-radius: 5px;
 }
 
 option[value=""][disabled] {
   display: none;
+}
+
+button {
+  background-color: white;
+}
+
+hr {
+  margin: 0px;
 }
 
 #map {

@@ -1,4 +1,4 @@
-mapboxgl.accessToken = '';
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGFyaW9tajQ4IiwiYSI6ImNsMHg2ZzRvbzBzcm8zZnA1cDR4cDd4d3kifQ.grUHSbKwXiWFwqQI1d_7dQ';
 
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
   enableHighAccuracy: true
@@ -8,7 +8,7 @@ function successLocation(position) {
   setupMap([position.coords.longitude, position.coords.latitude])
 }
 
-function errorLocation(position) {
+function errorLocation() {
   setupMap([-2.24, 53.48])
 }
 
@@ -29,15 +29,19 @@ function setupMap(center) {
     accessToken: mapboxgl.accessToken,
   })
   map.addControl(directions, 'top-left')
-
 }
 
-function createPOI(e) {
-  e.preventDefault()
+const formularioPOI = document.getElementById('formularioPOI')
 
+formularioPOI.addEventListener('submit', (e) => {
+  e.preventDefault()
+})
+
+function createPOI() {
   const nombre = document.getElementById('nombre').value;
   const direccion = document.getElementById('direccion').value;
-  const telefono = document.getElementById('telefono').value;
+  var telefono = document.getElementById('telefono').value
+  telefono ? telefono = telefono : telefono = 'N/A'
   const longitud = document.getElementById('longitud').value;
   const latitud = document.getElementById('latitud').value;
   const categoria = document.getElementById('categoria').value;
@@ -56,14 +60,17 @@ function createPOI(e) {
     const popup = new mapboxgl.Popup({ closeOnClick: false })
     .setLngLat([longitud, latitud])
     .setHTML(
-      `<div id="wasd">` + 
-        `<h3>Nombre: ${nombre}</h3>` +
-        `<h3>Dirección: ${direccion}</h3>` +
-        `<h3>Teléfono: ${telefono}</h3>` +
-        `<h3>X, Y: ${longitud}, ${latitud}</h3>` +
-        `<h3>Categoría: ${categoria}</h3>` +
+      `<div>` + 
+        `<p><strong>Nombre:</strong> ${nombre}</p>` +
+        `<p><strong>Dirección:</strong> ${direccion}</p>` +
+        `<p><strong>Teléfono:</strong> ${telefono}</p>` +
+        `<p><strong>X, Y:</strong> ${longitud}, ${latitud}</p>` +
+        `<p><strong>Categoría:</strong> ${categoria}</p>` +
       `</div>`
     )
     .addTo(map);
   })
 }
+
+//-34.7071127
+//-58.7847472

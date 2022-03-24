@@ -6,33 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
   <script src="script.js" defer></script>
   <link href='styles.css' rel='stylesheet' />
   <title>Mapbox</title>
 </head>
 <body>
-  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-  
   <div id="contenedor">
-    <form id="formularioPOI">
-      <input type="text" id="nombre" name="nombre" placeholder="Nombre">
-      <input type="text" id="direccion" name="direccion" placeholder="Dirección">
-      <input type="number" id="telefono" name="telefono" placeholder="Teléfono">
-      <input type="number" id="longitud" name="longitud" placeholder="Longitud">
-      <input type="number" id="latitud" name="latitud" placeholder="Latitud">
-      <select id="categoria" name="categoria">
+    <form id="formularioPOI" onsubmit=createPOI()>
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+      <input type="text" id="direccion" name="direccion" placeholder="Dirección" required>
+      <input type="number" id="telefono" name="telefono" placeholder="Teléfono (opcional)">
+      <input type="number" id="longitud" name="longitud" min="-180" max="180" step="any" placeholder="Longitud" required>
+      <input type="number" id="latitud" name="latitud" min="-180" max="180" step="any" placeholder="Latitud" required>
+      <select id="categoria" name="categoria" required>
         <option value="" disabled selected>Categoría</option>
         <option value="Comercial">Comercial</option>
         <option value="Residencial">Residencial</option>
         <option value="Mixta">Mixta</option>
       </select>
-      <button onclick="createPOI(event)">Crear POI
+      <button type="submit">Crear POI</button>
     </form>
   </div>
 
   <hr />
 
-  <div id='map'></div>
+  <div id="map"></div>
 </body>
 </html>
