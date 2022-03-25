@@ -1,11 +1,11 @@
 body {
   margin: 0px;
-  background-color: #ccc;
+  background-color: #FAF9F6;
 }
 
-#contenedor {
+.contenedor {
   width: 100%;
-  background-color: #ccc;
+  background-color: #FAF9F6;
   text-align: center;
 }
 
@@ -25,8 +25,19 @@ option[value=""][disabled] {
 }
 
 button {
-  background-color: white;
+  color: white;
+  font: bolder;
   cursor: pointer;
+}
+
+#botonCrear {
+  background-color: lime;
+}
+
+#botonEliminar {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: red;
 }
 
 hr {
@@ -38,7 +49,7 @@ hr {
   width: 100wh;
 }
 
-.marker {
+.marcador {
   background-image: url('https://toppng.com/uploads/preview/eat-play-do-icon-map-marker-115548254600u9yjx6qhj.png');
   background-size: cover;
   width: 25px;

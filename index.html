@@ -13,7 +13,7 @@
   <title>Mapbox</title>
 </head>
 <body>
-  <div id="contenedor">
+  <div class="contenedor">
     <form id="formularioPOI" onsubmit=createPOI()>
       <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
       <input type="text" id="direccion" name="direccion" placeholder="Dirección" required>
@@ -26,12 +26,18 @@
         <option value="Residencial">Residencial</option>
         <option value="Mixta">Mixta</option>
       </select>
-      <button type="submit">Crear POI</button>
+      <button id="botonCrear" type="submit">Crear POI</button>
     </form>
   </div>
 
   <hr />
 
   <div id="map"></div>
+
+  <hr />
+
+  <div class="contenedor">
+    <button id="botonEliminar" onClick="eliminarMarcadores()">Eliminar POIs</button>
+  </div>
 </body>
 </html>

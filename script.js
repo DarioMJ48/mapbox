@@ -12,7 +12,8 @@ function errorLocation() {
   setupMap([-2.24, 53.48])
 }
 
-var map;
+var map
+var marcadores = []
 
 function setupMap(center) {
   map = new mapboxgl.Map({
@@ -47,14 +48,15 @@ function createPOI() {
   const categoria = document.getElementById('categoria').value;
 
   let element = document.createElement('div')
-  element.className = 'marker'
+  element.className = 'marcador'
 
-  let marker = new mapboxgl.Marker(element)
+  let marcador = new mapboxgl.Marker(element)
   .setLngLat({
     lng: longitud,
     lat: latitud
   })
   .addTo(map)
+  marcadores.push(marcador)
 
   element.addEventListener('click', () => {
     const popup = new mapboxgl.Popup({ closeOnClick: false })
@@ -68,6 +70,15 @@ function createPOI() {
         `<p><strong>Categoría:</strong> ${categoria}</p>` +
       `</div>`
     )
-    .addTo(map);
+    .addTo(map)
   })
 }
+
+function eliminarMarcadores() {
+  if (marcadores !== null) {
+    for (var i = marcadores.length - 1; i >= 0; i--) {
+      marcadores[i].remove();
+    }
+  }
+}
+
